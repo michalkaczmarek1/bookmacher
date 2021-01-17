@@ -8,21 +8,19 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Data
+@AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "ACCOUNTS")
-public class Account {
+@Table(name = "RESULTS")
+public class Result {
+
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name = "ID", unique = true)
     private Long id;
 
     @NotNull
-    @Column(name = "NUMBER")
-    private String number;
+    private int score;
 
-    public Account(@NotNull String number) {
-        this.number = number;
-    }
+
 }
