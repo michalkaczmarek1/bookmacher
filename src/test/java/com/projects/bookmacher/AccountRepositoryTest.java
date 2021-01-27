@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,7 +22,7 @@ public class AccountRepositoryTest {
     @Test
     void shouldAccountRepositorySave() {
         //Given
-        Account account = new Account("12345678");
+        Account account = new Account("12345678", new BigDecimal("0"));
         accountRepository.save(account);
         //When
         Long id = account.getId();
@@ -35,7 +36,7 @@ public class AccountRepositoryTest {
     @Test
     void shouldAccountRepositoryDeleteById() {
         //Given
-        Account account = new Account("12345678");
+        Account account = new Account("12345678", new BigDecimal("0"));
         accountRepository.save(account);
         //When
         Long id = account.getId();
@@ -47,9 +48,9 @@ public class AccountRepositoryTest {
     @Test
     void shouldAccountRepositoryfindAll() {
         //Given
-        Account account1 = new Account("12345678");
+        Account account1 = new Account("12345678", new BigDecimal("0"));
         accountRepository.save(account1);
-        Account account2 = new Account("87654321");
+        Account account2 = new Account("87654321", new BigDecimal("0"));
         accountRepository.save(account2);
         //When
         List<Account> accounts = accountRepository.findAll();
@@ -62,7 +63,7 @@ public class AccountRepositoryTest {
     @Test
     void shouldAccountRepositoryfindById() {
         //Given
-        Account account1 = new Account("12345678");
+        Account account1 = new Account("12345678", new BigDecimal("0"));
         accountRepository.save(account1);
         //When
         Long id = account1.getId();

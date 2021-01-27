@@ -1,11 +1,13 @@
 package com.projects.bookmacher;
 
+import com.projects.bookmacher.domain.Account;
 import com.projects.bookmacher.domain.User;
 import com.projects.bookmacher.repository.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,6 +29,20 @@ public class UserRepositoryTest {
         Optional<User> readUser= userRepository.findById(id);
         //Then
         assertTrue(readUser.isPresent());
+        //clean up
+        userRepository.deleteAll();
+    }
+
+    @Test
+    void shouldUserRepositorySaveWithAccount() {
+        //Given
+        User user = new User("Michał", "Kaczmarek", "michal1988", "mitest@gmail.com");
+        user.setAccount(new Account("12345678", new BigDecimal("0")));
+        //When
+        userRepository.save(user);
+        Long id = user.getId();
+        //Then
+        System.out.println("ID: " + id);
         //clean up
         userRepository.deleteAll();
     }
