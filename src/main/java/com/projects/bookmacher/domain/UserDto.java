@@ -3,6 +3,8 @@ package com.projects.bookmacher.domain;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.List;
+
 @Getter
 @AllArgsConstructor
 public class UserDto {
@@ -12,4 +14,5 @@ public class UserDto {
     private String username;
     private String email;
     private Account account;
+    private List<Coupon> coupons;
 }
