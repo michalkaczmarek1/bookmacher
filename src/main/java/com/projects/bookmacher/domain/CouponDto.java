@@ -15,6 +15,5 @@ public class CouponDto {
     private BigDecimal value;
     private LocalDateTime date;
     private User user;
-//    private List<Event> events = new ArrayList<>();
-
+    private List<Event> events = new ArrayList<>();
 }

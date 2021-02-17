@@ -5,6 +5,7 @@ import com.projects.bookmacher.domain.AccountDto;
 import com.projects.bookmacher.exception.AccountNotFoundException;
 import com.projects.bookmacher.mapper.AccountMapper;
 import com.projects.bookmacher.service.DbServiceAccount;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -14,13 +15,14 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/v1")
+@RequiredArgsConstructor
 public class AccountController {
 
     @Autowired
-    private DbServiceAccount dbServiceAccount;
+    private final DbServiceAccount dbServiceAccount;
 
     @Autowired
-    private AccountMapper accountMapper;
+    private final AccountMapper accountMapper;
 
     @RequestMapping(method = RequestMethod.GET, value = "/accounts")
     public List<AccountDto> getAccounts() {

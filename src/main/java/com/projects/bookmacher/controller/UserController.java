@@ -17,10 +17,10 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    private DbServiceUser dbServiceUser;
+    private final DbServiceUser dbServiceUser;
 
     @Autowired
-    private UserMapper userMapper;
+    private final UserMapper userMapper;
 
     @RequestMapping(method = RequestMethod.GET, value = "/users")
     public List<UserDto> getUsers() {
